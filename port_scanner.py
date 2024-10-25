@@ -42,4 +42,4 @@ with ThreadPoolExecutor(max_workers=100) as execute:
     # If port is open the it will be stored in a list
     ports = [i for i, open in enumerate(results) if open]
 
-print(f"Open ports: {ports}")
+print(f"\nOpen ports: {ports}")
