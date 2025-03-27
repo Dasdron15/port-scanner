@@ -12,7 +12,6 @@ def is_valid_IP(ip):
     except socket.error:
         return False
 
-# Check if the ip is valid
 if not is_valid_IP(ip):
     print("Invalid IP adress!")
     exit(1)
@@ -32,11 +31,9 @@ def is_open(port):
         print(f"|{progress}| {percentage}%", end="\r")
         return False
     finally:
-        # Ensure the socket is closed
         s.close()
 
 
-# Starting 100 threads simultaneously so scanning will be faster.
 with ThreadPoolExecutor(max_workers=100) as execute:
     results = list(execute.map(is_open, range(10000)))
     # If port is open the it will be stored in a list
